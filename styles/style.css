@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+section#grid-parent{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    height: auto;
+}
+
+header{
+  grid-column: 1 /span 2;
+  background-color: #000;
+  height: 3rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding-left: 1em;
+}
+
+
+header h3#logotitle{
+    color: #fff;
+}
+
+
+aside{
+    background: red;
+    height: auto;
+    display:none;
+}
+section#changearea{
+    height: auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+section#changearea form{
+    display: flex;
+    flex-flow: column wrap;
+    width: 40%;
+    padding: 2em 3em 3em 3em;
+    margin: 4em;
+    border: .15em solid #000;
+    border-radius: 1em;
+    align-self: center;
+    justify-self: center;
+}
+
+.hide{
+    display: none;
+}
+
+.fail{
+    display: block;
+    background: #ff9494;
+    color: #8B0000;
+    margin-bottom: 1em;
+    padding: .5em;
+    border-radius: 1em;
+}
+.success{
+    display: block;
+    background: #4bb543;
+    color: #fff;
+     margin-bottom: 1em;
+    padding: .5em;
+    border-radius: 1em;
+}
+
+section#changearea form div.formgrp{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+section#changearea form h2.formtitle{
+    margin-bottom: 1em;
+}
+.inputnormal{
+    height:3em;
+    border-radius: 1em;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    margin-bottom:1em;
+    padding-left: 1em;
+}
+.inputerror{
+
+    height:3em;
+    border-radius: 1em;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, #ff9494 0px 0px 0px 1px inset;
+    margin-bottom:1em;
+    padding-left: 1em;
+
+}
+button#submitbtn{
+    width: 30%;
+    height:2em;
+    border-radius: .5em;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border: none;
+}
+
