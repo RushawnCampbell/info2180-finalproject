@@ -8,31 +8,37 @@
         <title>main</title>
     </head>
     <body>
-        <section id="grid-parent">
+        <section id="flex-parent">
 
             <header> 
                 <h3 id="logotitle">BugMe Issue Tracker</h3>
             </header>
-            <aside>
-                <h3 id="logotitle">BugMe Issue Tracker</h3>
-            </aside>
-            <section id="changearea"> 
-                <form>
-                    <h2 class="formtitle">Login</h2>
-                    <div class="formstatus"> </div>
-                     <div class="formgrp"> 
-                        <label>Email</label>
-                        <input class="inputnormal" type="email" placeholder="abc@example.com" name="loginemail" required>
-                     </div>
-                     <div class="formgrp"> 
-                        <label>Password</label>
-                        <input class="inputnormal" type="password" placeholder="Enter password here" name="password" required>
-                     </div>
-                    <button type= "submit" name="submitbtn" id="submitbtn"> Submit </button>
-                </form> 
-            </section>    
+           <div id="combo">
+                <aside>
+                    <h3 id="logotitle">BugMe Issue Tracker</h3>
+                </aside>
+                <section id="changearea"> 
+                    <form id="login">
+                        <h2 class="formtitle">Login</h2>
+                        <div class="formstatus"> </div>
+                        <div class="formgrp"> 
+                            <label>Email</label>
+                            <input class="inputnormal" type="email" placeholder="abc@example.com" name="email" required>
+                        </div>
+                        <div class="formgrp"> 
+                            <label>Password</label>
+                            <input class="inputnormal" type="password" placeholder="Enter password here" name="password" required>
+                        </div>
+                        <button type= "submit" name="submitbtn" id="submitbtn"> Submit </button>
+                    </form> 
+                </section>    
+           </div>
 
         </section>
     </body>
 
+
+    
+
 </html>
+

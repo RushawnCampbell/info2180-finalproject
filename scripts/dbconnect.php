@@ -6,8 +6,8 @@ try {
   $conn = new PDO("mysql:host=$servername;dbname=bugme", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
+
 } catch(PDOException $error) {
-  echo "Connection failed: " . $error->getMessage();
+  echo "Could Not Connect To Database Server Message: " . $error->getMessage();
 }
 ?>

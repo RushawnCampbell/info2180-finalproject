@@ -4,11 +4,9 @@
     padding: 0;
 }
 
-section#grid-parent{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
-    height: auto;
+section#flex-parent{
+    display: flex;
+    flex-flow: column wrap;
 }
 
 header{
@@ -26,10 +24,15 @@ header h3#logotitle{
     color: #fff;
 }
 
+.combostyle{
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100vw;
+}
 
 aside{
-    background: red;
-    height: auto;
+    background: #ececec;
+    width:15%;
     display:none;
 }
 section#changearea{
