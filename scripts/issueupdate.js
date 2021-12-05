@@ -4,7 +4,6 @@ window.addEventListener("load", (event)=>{
         
         const btnparent = document.querySelector("aside#issueaside");
         if(document.contains(btnparent)){
-            clearInterval(issueupdatecheck);
             let mkasclose = document.querySelector("#issueaside button#mkasclose");
             let mkascloseval = mkasclose.getAttribute("chk");
             let mkinpro = document.querySelector("#issueaside button#mkinpro");
