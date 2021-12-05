@@ -8,7 +8,8 @@ window.addEventListener("load", (event)=>{
             let mkascloseval = mkasclose.getAttribute("chk");
             let mkinpro = document.querySelector("#issueaside button#mkinpro");
             let metap = document.querySelector("#issuebody  #contentcombo section#issuemetasec p#updated");
-                let updateIssueUrl = "";
+            let metastat = document.querySelector(".infogrp span#statuspan")
+            let updateIssueUrl = "";
                 
                 mkasclose.onclick = event => {
                     event.preventDefault();
@@ -20,7 +21,9 @@ window.addEventListener("load", (event)=>{
                     })
                     .then(resp => resp.text())
                     .then(resp=>{
-                        metap.innerHTML=resp;
+    
+                        metap.innerHTML= resp.substr(0, resp.indexOf('*'))
+                        metastat.innerHTML = resp.substring(resp.indexOf('*') + 1);
                     }) 
                      
                 }
@@ -34,7 +37,9 @@ window.addEventListener("load", (event)=>{
                     })
                     .then(resp => resp.text())
                     .then(resp=>{
-                        metap.innerHTML=resp;
+                        
+                        metap.innerHTML= resp.substr(0, resp.indexOf('*'));
+                        metastat.innerHTML = resp.substring(resp.indexOf('*') + 1);
                     })  
                 }   
         }

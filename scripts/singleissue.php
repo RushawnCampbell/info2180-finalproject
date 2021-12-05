@@ -53,8 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
                             </div>
                             <div class=\"infogrp\">
                                 <span class=\"label\">Status</span>
-                                <span>{$issue['status']}</span>
-                            </div>
+                                <span id=\"statuspan\">{$issue['status']}</span>
+                            </div> 
                         </section>
                         <button chk =\"{$issue['id']}\"id=\"mkasclose\">Mark as Closed</button>
                         <button chk =\"{$issue['id']}\" id=\"mkinpro\"> Mark in Progress</button>
