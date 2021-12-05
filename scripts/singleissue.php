@@ -52,6 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
                                 <span>{$issue['type']}</span>
                             </div>
                             <div class=\"infogrp\">
+                                <span class=\"label\">Type</span>
+                                <span>{$issue['priority']}</span>
+                            </div>
+                            <div class=\"infogrp\">
                                 <span class=\"label\">Status</span>
                                 <span id=\"statuspan\">{$issue['status']}</span>
                             </div> 
