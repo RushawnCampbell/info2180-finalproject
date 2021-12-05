@@ -10,8 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
       ':id' => $id
   ));
   $issue = $issuestmt->fetch(PDO::FETCH_ASSOC);
-  $updatedday= date('F jS, Y',strtotime($issue['created']));
-  $updatedtime = date('h:i A',strtotime($issue['created']));
+
+  $updated = $issue['updated'];
+  $updatedday = date('F jS, Y',strtotime($updated));
+  $updatedtime = date('h:i A',strtotime($updated));
+
   $assignsql = "SELECT * FROM userstable WHERE id = :id";
   $assignstmt = $conn -> prepare($assignsql);
   $assignstmt->execute(array(
@@ -25,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
         ':id' => $issue['created_by']
   ));
   $creator = $creatorstmt->fetch(PDO::FETCH_ASSOC);
+  $createdday = date('F jS, Y',strtotime($issue['created']));
+  $createdtime= date('h:i A',strtotime($issue['created']));
 
   $singleissue = "
                <div id=\"issueparent\"> 
@@ -36,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
                    <section id=\"contentcombo\"> 
                         <article id=\"description\"> {$issue['description']}</article>
                         <section id=\"issuemetasec\">
-                            <p class=\"issuemeta\"> <span>&#5171;</span>  Issue created on {$updatedday} at {$updatedtime} by {$creator['firstname']} {$creator['lastname']} </p>
+                            <p class=\"issuemeta\"> <span>&#5171;</span>  Issue created on {$createdday} at {$createdtime} by {$creator['firstname']} {$creator['lastname']} </p>
                             <p id=\"updated\"class=\"issuemeta\"> <span>&#5171;</span>  Last updated on {$updatedday} at {$updatedtime}</p>
                         </section>
                    </section>
