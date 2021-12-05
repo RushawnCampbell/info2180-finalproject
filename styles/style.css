@@ -213,6 +213,10 @@ div#issueparent{
     margin-top: 2em;
 }
 
+#issuehead span{
+    font-weight: bold;
+}
+
 #issuehead h1{
     font-size: 2em;
 }
@@ -252,8 +256,20 @@ div#issueparent{
 
 #issueaside button{
     width: 10em;
-    margin: 1em;
     padding: .5em;
+    color: #fff;
+    border: none;
+    border-radius: .5em;
+}
+
+#issueaside button#mkasclose{
+    background: #1434A4;
+    margin: 1em;
+}
+
+#issueaside button#mkinpro{
+    background: #229954; 
+    margin: 0 1em 1em 1em;
 }
 
 #infobox{

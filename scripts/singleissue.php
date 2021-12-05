@@ -18,11 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
   ));
   $assigneduser = $assignstmt->fetch(PDO::FETCH_ASSOC);
 
-  
   $creatorsql = "SELECT * FROM userstable WHERE id = :id";
   $creatorstmt = $conn -> prepare($creatorsql);
   $creatorstmt->execute(array(
-        ':id' => $issue['createdby']
+        ':id' => $issue['created_by']
   ));
   $creator = $creatorstmt->fetch(PDO::FETCH_ASSOC);
 
@@ -56,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
                                 <span>{$issue['status']}</span>
                             </div>
                         </section>
-                        <button>Mark as Closed</button>
-                        <button> Mark in Progress</button>
+                        <button id=\"mkasclose\">Mark as Closed</button>
+                        <button id=\"mkinpro\"> Mark in Progress</button>
                    </aside>
                 </section> </div>";
 
