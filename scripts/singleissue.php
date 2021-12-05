@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
                         <article id=\"description\"> {$issue['description']}</article>
                         <section id=\"issuemetasec\">
                             <p class=\"issuemeta\"> <span>&#5171;</span>  Issue created on {$issue['created']} by {$creator['firstname']} {$creator['lastname']} </p>
-                            <p class=\"issuemeta\"> <span>&#5171;</span>  Last updated on {$issue['updated']}</p>
+                            <p id=\"updated\"class=\"issuemeta\"> <span>&#5171;</span>  Last updated on {$issue['updated']}</p>
                         </section>
                    </section>
                    
@@ -55,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
                                 <span>{$issue['status']}</span>
                             </div>
                         </section>
-                        <button id=\"mkasclose\">Mark as Closed</button>
-                        <button id=\"mkinpro\"> Mark in Progress</button>
+                        <button chk =\"{$issue['id']}\"id=\"mkasclose\">Mark as Closed</button>
+                        <button chk =\"{$issue['id']}\" id=\"mkinpro\"> Mark in Progress</button>
                    </aside>
                 </section> </div>";
 

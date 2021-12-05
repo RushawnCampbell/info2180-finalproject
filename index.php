@@ -6,10 +6,12 @@
         <meta name= "viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet"  href="styles/style.css"/>
         <script src="scripts/login.js"> </script>
+        <script src="scripts/logout.js"> </script>
         <script src="scripts/adduser.js"> </script>
         <script src= "scripts/newissue.js"> </script>
         <script src= "scripts/singleissue.js"> </script>
-       <!-- <script src="scripts/home.js"> </script>-->
+        <script src="scripts/issueupdate.js"> </script>
+        <script src="scripts/home.js"> </script>
         <title>main</title>
     </head>
     <body>

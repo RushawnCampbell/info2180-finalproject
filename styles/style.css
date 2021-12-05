@@ -101,6 +101,7 @@ section#changearea form#adduser, form#addissue{
     align-self: center;
     vertical-align: middle;
     text-align: left;
+    border-collapse: collapse;
 }
 table#issuetable thead{
     background: #ececec;
@@ -112,9 +113,14 @@ table#issuetable tr td a{
     text-decoration: none;
 }
 
-table#issuetable tr{
-    margin-bottom: 1em;
+table#issuetable tr td{
+    margin-bottom: 2em;
+    margin-top: 2em;
+    padding-bottom: .5em;
+    border-bottom: solid #ececec .1em; 
+
 }
+
 
 .hide{
     display: none;
