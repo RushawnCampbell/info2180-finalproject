@@ -10,6 +10,16 @@ $updated =  date('Y/m/d H:i:s');
 $closedstat = "Closed";
 $inprostat = "In Progress";
 
+$issuesql = "SELECT * FROM issuestable WHERE id = :id";
+  $issuestmt = $conn -> prepare($issuesql);
+  $issuestmt->execute(array(
+      ':id' => $issueid
+  ));
+$issue = $issuestmt->fetch(PDO::FETCH_ASSOC);
+$updatedday= date('F jS, Y',strtotime($updated));
+$updatedtime = date('h:i A',strtotime($updated));
+
+
 if($check == "mkasclose"){
    $timesql = "UPDATE issuestable SET updated = :updated WHERE id = :id";
    $timestmt = $conn -> prepare($timesql);
@@ -25,7 +35,7 @@ if($check == "mkasclose"){
        ':id' => $issueid
    ));
 
-   echo "<span>&#5171;</span> Last updated on {$updated} * <span id=\"statuspan\">{$closedstat}</span>";
+   echo "<span>&#5171;</span> Last updated on {$updatedday} at {$updatedtime} * <span id=\"statuspan\">{$closedstat}</span>";
 }
 else if( $check == "mkinpro"){
 
@@ -43,7 +53,7 @@ else if( $check == "mkinpro"){
        ':id' => $issueid
    ));
 
-   echo "<span>&#5171;</span> Last updated on {$updated} * <span id=\"statuspan\">{$inprostat}</span>";
+   echo "<span>&#5171;</span> Last updated on {$updatedday} at {$updatedtime} * <span id=\"statuspan\">{$inprostat}</span>";
 
 }
 }
