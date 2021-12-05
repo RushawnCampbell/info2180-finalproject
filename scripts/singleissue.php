@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
       ':id' => $id
   ));
   $issue = $issuestmt->fetch(PDO::FETCH_ASSOC);
-
+  $createdday= date('F jS, Y',strtotime($issue['created']));
+  $createdtime = date('h:i A',strtotime($issue['created']));
   $assignsql = "SELECT * FROM userstable WHERE id = :id";
   $assignstmt = $conn -> prepare($assignsql);
   $assignstmt->execute(array(
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_SESSION['first_name'])&& isse
                    <section id=\"contentcombo\"> 
                         <article id=\"description\"> {$issue['description']}</article>
                         <section id=\"issuemetasec\">
-                            <p class=\"issuemeta\"> <span>&#5171;</span>  Issue created on {$issue['created']} by {$creator['firstname']} {$creator['lastname']} </p>
+                            <p class=\"issuemeta\"> <span>&#5171;</span>  Issue created on {$createdday} at {$createdtime} by {$creator['firstname']} {$creator['lastname']} </p>
                             <p id=\"updated\"class=\"issuemeta\"> <span>&#5171;</span>  Last updated on {$issue['updated']}</p>
                         </section>
                    </section>

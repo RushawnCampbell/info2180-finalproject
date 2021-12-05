@@ -27,7 +27,7 @@ header h3#logotitle{
 .combostyle{
     display: flex;
     flex-flow: row nowrap;
-    height: 100vw;
+    height: 100vh;
 }
 
 .asidestyle{
