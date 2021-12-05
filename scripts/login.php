@@ -1,20 +1,18 @@
 <?php
 require "dbconnect.php";
-session_start();
 $cleanedemail= "";
 $password = "";
 
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
-
+if ($_SERVER['REQUEST_METHOD'] == "POST" ){
+  
     $jsn = file_get_contents('php://input');
     $data = json_decode($jsn);
-
-    if (!filter_var($data->email, FILTER_VALIDATE_EMAIL)){
+    $cleanedemail = filter_var($data->email, FILTER_VALIDATE_EMAIL);
+    if (!filter_var($cleanedemail, FILTER_VALIDATE_EMAIL)){
         echo "2";
     }
     else{
         $password = $data->password;
-        $cleanedemail = $data->email;
         $sql = "SELECT * FROM userstable WHERE email= :email";
         $stmt = $conn->prepare($sql);
         $stmt->execute(array(':email' =>  $cleanedemail));
@@ -24,19 +22,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
             if (!password_verify($password, $record["password"])){
                 echo "1";
             }
-            else{ 
-                $_SESSION['id'] = $record['id'];
-                $_SESSION['email'] = $record['email'];
-                echo "4";
+            else{
+                session_start(); 
+                $_SESSION['uid'] = $record['id'];
+                $_SESSION['first_name'] = $record['firstname'];
+                $_SESSION['last_name'] = $record['lastname'];
+                if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
+                    echo "4";
+                }
+                else{
+                    echo "3";
+                }
             } 
         }
         else{
             echo "0";
         }
     }
-}
-else{
-    echo "No";
 }
 
 

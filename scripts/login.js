@@ -4,12 +4,14 @@ window.addEventListener("load", event => {
     const formstatus = document.querySelector("section#changearea form div.formstatus");
     formstatus.classList.add("hide");
     const submitbtn = document.querySelector("section#changearea form button#submitbtn");
-    const form = document.querySelector("form");
+    const changearea= document.querySelector("section#changearea");
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+    //const parserObj = new DOMParser();
     const errors =[
         "This account was not found, Contact your administrator for help.",
         "Invalid Password, check your info and try again",
-        "You did not provide a valid, please check and try again"
+        "You did not provide a valid, please check and try again",
+        "We are unable to start your session at this time. Try again later"
     ];
     submitbtn.addEventListener("click", event => {
 
@@ -17,6 +19,7 @@ window.addEventListener("load", event => {
 
         if ( (emailField.value.length == 0 || !emailRegex.test(emailField.value.toLowerCase())) && passwordField.value.length !=0){
             formstatus.classList.remove("hide");
+            formstatus.classList.remove("success");
             formstatus.classList.add("fail");
             emailField.classList.remove("inputnormal");
             emailField.classList.add("inputerror");
@@ -27,6 +30,7 @@ window.addEventListener("load", event => {
         else if (passwordField.value.length == 0 && emailField.value.length !=0){
 
             formstatus.classList.remove("hide");
+            formstatus.classList.remove("success");
             formstatus.classList.add("fail");
             passwordField.classList.remove("inputnormal");
             passwordField.classList.add("inputerror");
@@ -38,6 +42,7 @@ window.addEventListener("load", event => {
         else if (passwordField.value.length == 0 && emailField.value.length == 0){
 
             formstatus.classList.remove("hide");
+            formstatus.classList.remove("success");
             formstatus.classList.add("fail");
             emailField.classList.remove("inputnormal");
             emailField.classList.add("inputerror");
@@ -50,7 +55,7 @@ window.addEventListener("load", event => {
                 email: emailField.value,
                 password: passwordField.value,
             };
-            const cleanUrl = `scripts/login.php?act=login`.replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
+            const cleanUrl = "scripts/login.php".replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
             fetch(cleanUrl, {
                 method : 'POST',
                 headers: {
@@ -58,19 +63,31 @@ window.addEventListener("load", event => {
                     "Accept" : "application/json",
                 },
                 body: JSON.stringify(formData),
-                mode: "cors"
+                mode: "cors",
             })
             .then(resp => resp.text())
             .then(resp =>{
-                if (parseInt(resp) === 0 || parseInt(resp) === 1 || parseInt(resp) === 2 ){
+                if (parseInt(resp) === 0 || parseInt(resp) === 1 || parseInt(resp) === 2 || parseInt(resp) === 3){
                     formstatus.classList.remove("hide");
                     formstatus.classList.add("fail");
                     formstatus.innerHTML = errors[parseInt(resp)];
                 }
                 else if (parseInt(resp) === 4){
-                    document.getElementsByTagName("aside")[0].style.display = "block";
+                    document.getElementsByTagName("aside")[0].classList.remove("hide");
+                    document.getElementsByTagName("aside")[0].classList.add("asidestyle");
                     document.querySelector("div#combo").classList.add("combostyle");
-                    document.querySelector("section#changearea").innerHTML = "";
+                    changearea.style.width="85%";
+                    changearea.innerHTML = "";
+                    const listUrl = "scripts/issuelist.php".replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
+                    fetch(listUrl, {method : 'GET'})
+                    .then(resp => resp.text())
+                    .then(resp=>{
+                       // let parsedDom = parserObj.parseFromString(resp, "text/html");
+                        changearea.innerHTML =resp;
+                        document.querySelector("table#issuetable").classList.add("issuetable");
+                    })
+
+
                 }
                 
             })

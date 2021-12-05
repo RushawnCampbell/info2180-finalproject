@@ -30,19 +30,46 @@ header h3#logotitle{
     height: 100vw;
 }
 
-aside{
+.asidestyle{
+
+    display: flex;
+    flex-flow: column wrap;
     background: #ececec;
+    padding-top: 1em;
     width:15%;
-    display:none;
 }
+
+.menucombo{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: .5em;
+}
+header img{
+    width: 2em;
+    margin-right: 1em;
+}
+aside div.menucombo img{
+     width: 1.3em;
+     margin-right: .7em;
+}
+
+aside div.menucombo button{
+    border: none;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
 section#changearea{
     height: auto;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
     align-items: center;
+    justify-self: center;
+    width:100%;
+    
 }
-section#changearea form{
+section#changearea form {
     display: flex;
     flex-flow: column wrap;
     width: 40%;
@@ -52,6 +79,41 @@ section#changearea form{
     border-radius: 1em;
     align-self: center;
     justify-self: center;
+}
+
+section#changearea form#adduser, form#addissue{
+    display: flex;
+    flex-flow: column wrap;
+    width: 60%;
+    padding: 2em 3em 3em 3em;
+    margin: 2em;
+    border: .15em solid #000;
+    border-radius: 1em;
+    justify-self: center;
+    align-self: center;
+
+}
+
+.issuetable{
+    width: 80%;
+    margin: 2em;
+    justify-self: center;
+    align-self: center;
+    vertical-align: middle;
+    text-align: left;
+}
+table#issuetable thead{
+    background: #ececec;
+    margin-right: 1em;
+}
+
+table#issuetable tr td a{
+    color: #3498DB;
+    text-decoration: none;
+}
+
+table#issuetable tr{
+    margin-bottom: 1em;
 }
 
 .hide{
@@ -91,6 +153,15 @@ section#changearea form h2.formtitle{
     margin-bottom:1em;
     padding-left: 1em;
 }
+
+.txtANormal{
+    border-radius: 1em;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    margin-bottom:1em;
+    padding: 1em;
+}
+
 .inputerror{
 
     height:3em;
@@ -101,11 +172,97 @@ section#changearea form h2.formtitle{
     padding-left: 1em;
 
 }
-button#submitbtn{
+
+.txtAErr{
+    border-radius: 1em;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, #ff9494 0px 0px 0px 1px inset;
+    margin-bottom:1em;
+    padding-left: 1em;
+}
+
+button#submitbtn, button#adduserbtn, button#addissuebtn{
+    background: #0096FF;
+    color: #fff;
     width: 30%;
     height:2em;
     border-radius: .5em;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     border: none;
 }
+
+button#submitbtn:hover, button#adduserbtn:hover, button#addissuebtn:hover{
+    background: #1434A4;
+}
+
+div#issueparent{
+    display: flex;
+    flex-flow: column wrap;
+    width: 90%;
+    justify-self: center;
+}
+
+#issuehead, #contentcombo, #issuemetasec, #issueaside, #infobox, .infogrp{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#issuehead{
+    width: 90%;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+#issuehead h1{
+    font-size: 2em;
+}
+#issuebody{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 90%;
+}
+
+#issuebody  #contentcombo{
+    width: 75%;
+}
+
+#issuebody  #contentcombo article#description{
+    padding: 2em 2em 2em 0em;
+}
+
+#issuebody  #contentcombo section#issuemetasec{
+    margin-top: 3em;
+}
+#issuebody  #contentcombo section#issuemetasec p{
+    
+    color: #999;
+}
+
+#issuebody  #contentcombo section#issuemetasec p span{
+    color: #000;
+}
+
+#issuebody  #issueaside{
+    width: 25%;
+}
+
+#issueaside span.label{
+    font-weight: bold;
+}
+
+#issueaside button{
+    width: 10em;
+    margin: 1em;
+    padding: .5em;
+}
+
+#infobox{
+    background: #ececec;
+    padding: 2em;
+}
+
+.infogrp{
+    margin-bottom: 1em;
+}
+ 
 

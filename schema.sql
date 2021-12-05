@@ -6,7 +6,7 @@ CREATE TABLE userstable (
   firstname varchar(255) NOT NULL,
   lastname varchar(255) NOT NULL,
   password varchar(255) NOT NULL,
-  email varchar(255),
+  email varchar(255) NOT NULL,
   date_joined DATETIME
 );
 
