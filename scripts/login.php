@@ -6,6 +6,7 @@ $password = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST" ){
   
     $jsn = file_get_contents('php://input');
+    $passregex = "^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$^";
     $data = json_decode($jsn);
     $cleanedemail = filter_var($data->email, FILTER_VALIDATE_EMAIL);
     if (!filter_var($cleanedemail, FILTER_VALIDATE_EMAIL)){

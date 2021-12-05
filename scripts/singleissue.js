@@ -3,12 +3,7 @@ window.addEventListener("load", (event)=>{
     let singleissue = setInterval( ()=>{
         let issuelinks = document.querySelectorAll("table#issuetable tr td a");
         let changearea= document.querySelector("section#changearea");
-        if(document.contains(issuelinks[0])) {
-            clearInterval(singleissue);
-            
-
             issuelinks.forEach((issuelink)=>{
-
                 issuelink.onclick = event => {
                     event.preventDefault();
                     let id = issuelink.getAttribute("href");
@@ -30,7 +25,7 @@ window.addEventListener("load", (event)=>{
                 }
 
             });
-        }
+        
     }, 1000);
 
 });
