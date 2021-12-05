@@ -121,6 +121,28 @@ table#issuetable tr td{
 
 }
 
+section.issuelistheadparent{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width:80%;
+    margin-top:2em;
+}
+
+section.issuelistheadparent h1.issuelisthead{
+    text-align: left;
+    font-size: 2em;
+}
+
+section.issuelistheadparent button#createissuebtn{
+    padding: 1em;
+    border:none;
+    border-radius: .5em;
+    width: 12em;
+    color: #fff;
+    background:#4bb543;
+}
+
 
 .hide{
     display: none;

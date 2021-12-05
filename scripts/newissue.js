@@ -7,8 +7,6 @@ window.addEventListener("load", event =>{
 
     let issueForm = setInterval( ()=>{
         if(document.contains(document.getElementById("issueform"))){
-            clearInterval(issueForm);
-
             const addissuebtn = document.querySelector("form#issueform button#addissuebtn");
             const cleanUrl2 = "scripts/newissue.php".replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
             const title = document.querySelector("form#issueform input#title");

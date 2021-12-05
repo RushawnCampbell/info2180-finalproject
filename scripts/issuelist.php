@@ -7,7 +7,11 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
     $stmt = $conn->query($sql);
     $issues = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $tableconstruct= "
-        <table id='issuetable'> 
+        <section class=\"issuelistheadparent\">
+            <h1 class=\"issuelisthead\"> Issues </h1>
+            <button id=\"createissuebtn\"> Create New Issue </button>
+        </section>
+        <table id='issuetable'>
             <thead>
                 <th>Title</th> 
                 <th>Type</th>

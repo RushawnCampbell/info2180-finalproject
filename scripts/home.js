@@ -40,4 +40,24 @@ window.addEventListener("load",event=>{
 
     });
 
+    setInterval( ()=>{
+
+        const homecreatebtn =  document.querySelector("section.issuelistheadparent button#createissuebtn");
+        const getformUrl = "scripts/getissueform.php".replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
+        if (document.contains(homecreatebtn)){
+
+            homecreatebtn.onclick=event=>{
+                fetch(getformUrl, {method : 'GET'})
+                .then(resp => resp.text())
+                .then(resp=>{
+                    changearea.innerHTML = resp;
+                })
+            }
+
+        }
+        
+
+    },1000);
+
+
 });

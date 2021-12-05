@@ -7,8 +7,6 @@ window.addEventListener("load", event => {
 
     let userForm = setInterval( ()=>{
         if(document.contains(document.getElementById("adduserform"))){
-            clearInterval(userForm);
-
             const adduserbtn = document.querySelector("form#adduserform button#adduserbtn");
             const cleanUrl = "scripts/adduser.php".replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
             const fname = document.querySelector("form#adduserform input#fname");
