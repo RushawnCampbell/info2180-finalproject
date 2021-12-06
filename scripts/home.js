@@ -12,7 +12,6 @@ window.addEventListener("load",event=>{
         fetch(listUrl, {method : 'GET'})
             .then(resp => resp.text())
             .then(resp=>{
-            // let parsedDom = parserObj.parseFromString(resp, "text/html");
             changearea.innerHTML =resp;
             document.querySelector("table#issuetable").classList.add("issuetable");
             })

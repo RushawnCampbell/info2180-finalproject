@@ -55,7 +55,7 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
     }
     else if($_GET['btn'] == "mytickets"){
         $myid = $_SESSION['uid'];
-        $mytkssql = "SELECT * FROM issuestable WHERE created = :myid";
+        $mytkssql = "SELECT * FROM issuestable WHERE created_by = :myid";
         $mytksstmt = $conn->prepare($mytkssql);
         $mytksstmt->execute(array(
             ':myid' => $myid
