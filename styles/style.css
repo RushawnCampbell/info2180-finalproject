@@ -146,8 +146,8 @@ table#issuetable tr td#inprog span{
 }
 
 table#issuetable tr td#closed span{
-    background: #ed9121;
-    color: #000;
+    background: #ff0000;
+    color: #fff;
     text-align: center;
     border-radius: .5em;
     padding:0 1em 0 1em;
