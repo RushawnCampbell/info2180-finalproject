@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $lname= $cleanedassign[1];
     $cleanedtype = filter_var($data->type, FILTER_SANITIZE_SPECIAL_CHARS);
     $cleanedpriority= filter_var($data->priority, FILTER_SANITIZE_SPECIAL_CHARS);
-    $currentdatetime = date('Y/m/d H:i:s');
+    $currentdatetime = date('Y/m/d');
 
     $idsql = "SELECT * FROM userstable WHERE firstname = :fname AND lastname = :lname";
     $idstmt =  $conn -> prepare($idsql);

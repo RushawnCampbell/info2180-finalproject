@@ -7,10 +7,17 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
     $stmt = $conn->query($sql);
     $issues = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $tableconstruct= "
+       <section id=\"issuelistheaduniverse\">
         <section class=\"issuelistheadparent\">
             <h1 class=\"issuelisthead\"> Issues </h1>
             <button id=\"createissuebtn\"> Create New Issue </button>
         </section>
+        <section id=\"filter\"> 
+            <label>Filter by: </label>
+            <button id=\"all\"> ALL </button>
+            <button id=\"open\"> OPEN </button>
+            <button id=\"mytickets\"> MY TICKETS</button>
+        </section></section>
         <table id='issuetable'>
             <thead>
                 <th>Title</th> 
@@ -41,9 +48,3 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
              $tableconstruct.=  "</table>";
              echo $tableconstruct;
 }
-
-/* 
-<li><p id = "created"> Issue created on <?=date("F jS, Y", strtotime(get_date($issue['created'])));?> at <?=date('h:i A', strtotime($issue['created']));?> by <?=get_name($issue['created_by']);?> </p></li>
-<li><p id = "updated"> Last updated on <span id = "date"> <?=date("F jS, Y", strtotime(get_date($issue['updated'])));?> </span> at <span id= "time"> <?=date('h:i A', strtotime($issue['updated']));?> </span> </p></li> 
-
-*/

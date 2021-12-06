@@ -121,17 +121,24 @@ table#issuetable tr td{
 
 }
 
+section#issuelistheaduniverse{
+    display: flex;
+    flex-flow: column wrap;
+    width:80%;
+   
+}
+
 section.issuelistheadparent{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
-    width:80%;
+    width:100%;
     margin-top:2em;
 }
 
 section.issuelistheadparent h1.issuelisthead{
     text-align: left;
-    font-size: 2em;
+    font-size: 3em;
 }
 
 section.issuelistheadparent button#createissuebtn{
@@ -142,6 +149,44 @@ section.issuelistheadparent button#createissuebtn{
     color: #fff;
     background:#4bb543;
 }
+
+section.issuelistheadparent button#createissuebtn:hover{
+    transition: all 0.5s ease-in-out;
+    background: #fff;
+    color: #000;
+    border: solid #4bb543 .2em;
+}
+
+section#filter{
+    display: flex;
+    flex-flow: row nowrap;
+    width:30%;
+    margin-top: 2em;
+    justify-content: space-between;
+}
+section#filter button{
+    background: none;
+    border: none;
+    border-radius: .3em;
+    padding: .5em;
+    transition: all 0.5s ease-in-out;
+}
+
+section#filter button#all:hover{
+    background: #1434a4;
+    color: #fff;
+}
+
+section#filter button#open:hover{
+    background: #4bb543;
+    color: #fff;
+}
+
+section#filter button#mytickets:hover{
+    background: #ffdb58;
+    color: #000;
+}
+
 
 
 .hide{
