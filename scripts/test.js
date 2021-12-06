@@ -3,12 +3,10 @@ window.addEventListener("load",event=>{
     let home= document.querySelector("aside div.menucombo button#home");
     let changearea= document.querySelector("section#changearea");
     let issuelinks = document.querySelectorAll("table#issuetable tr td a");
-    let filterurl = "";
     home.onclick= event=>{
         changearea.innerHTML="";
-        const listUrl = new URL('http://localhost/info2180-finalproject/scripts/issuelist.php');
-        let params = {btn: "all"};
-        listUrl.search = new URLSearchParams(params).toString();
+        let listUrl = "scripts/issuelist.php".replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
+
         fetch(listUrl, {method : 'GET'})
             .then(resp => resp.text())
             .then(resp=>{
@@ -45,11 +43,12 @@ window.addEventListener("load",event=>{
     setInterval( ()=>{
 
         const homecreatebtn =  document.querySelector("section.issuelistheadparent button#createissuebtn");
+        const filterall = document.querySelector("section#filter button#all");
+        const filteropen = document.querySelector("section#filter button#open");
+        const filtermytickets = document.querySelector("section#filter button#mytickets");
+        let filterurl = "";
         const getformUrl = "scripts/getissueform.php".replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
         if (document.contains(homecreatebtn)){
-            let filterall = document.querySelector("section#filter button#all");
-            let filteropen = document.querySelector("section#filter button#open");
-            let filtermytickets = document.querySelector("section#filter button#mytickets");
 
             homecreatebtn.onclick=event=>{
                 fetch(getformUrl, {method : 'GET'})
@@ -69,7 +68,7 @@ window.addEventListener("load",event=>{
                     changearea.innerHTML = resp;
                     document.querySelector("table#issuetable").classList.add("issuetable");
                 })
-        
+
             }
             filtermytickets.onclick =(event)=>{
                 filterurl = new URL('http://localhost/info2180-finalproject/scripts/issuelist.php');
@@ -81,24 +80,12 @@ window.addEventListener("load",event=>{
                     changearea.innerHTML = resp;
                     document.querySelector("table#issuetable").classList.add("issuetable");
                 })
-        
-            }
 
-            filterall.onclick =(event)=>{
-                filterurl = new URL('http://localhost/info2180-finalproject/scripts/issuelist.php');
-                let params = {btn: "all"};
-                filterurl.search = new URLSearchParams(params).toString();
-                fetch(filterurl, {method : 'GET'})
-                .then(resp => resp.text())
-                .then(resp=>{
-                    changearea.innerHTML = resp;
-                    document.querySelector("table#issuetable").classList.add("issuetable");
-                })
-        
             }
 
         }
-           
+        
+        
 
     },1000);
 

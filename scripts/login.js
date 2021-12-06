@@ -78,7 +78,9 @@ window.addEventListener("load", event => {
                     document.querySelector("div#combo").classList.add("combostyle");
                     changearea.style.width="85%";
                     changearea.innerHTML = "";
-                    const listUrl = "scripts/issuelist.php".replace( /"[^-0-9+&@#/%=~_|!:,.;\(\)]"/g,'');
+                    const listUrl = new URL('http://localhost/info2180-finalproject/scripts/issuelist.php');
+                    let params = {btn: "all"};
+                    listUrl.search = new URLSearchParams(params).toString();
                     fetch(listUrl, {method : 'GET'})
                     .then(resp => resp.text())
                     .then(resp=>{
