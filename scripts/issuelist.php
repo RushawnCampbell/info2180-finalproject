@@ -55,7 +55,7 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                     "<tr class=\"temprow\"> 
                      <td><span class=\"ticketnum\">#{$openissue['id']}</span><a href=\"{$openissue['id']}\">{$openissue['title']}</a></td>
                      <td>{$openissue['type']} </td>
-                     <td id={$statid}>{$openissue['status']}</td>
+                     <td id={$statid}><span>{$openissue['status']}</span></td>
                      <td>{$user['firstname']} {$user['lastname']} </td>
                      <td>{$openissue['created']}</td>
                     </tr>";  
@@ -114,7 +114,7 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                     "<tr class=\"temprow\"> 
                      <td><span class=\"ticketnum\">#{$myissue['id']}</span><a href=\"{$myissue['id']}\">{$myissue['title']}</a></td>
                      <td>{$myissue['type']} </td>
-                     <td id={$statid}>{$myissue['status']}</td>
+                     <td id={$statid}><span>{$myissue['status']}</span></td>
                      <td>{$user['firstname']} {$user['lastname']} </td>
                      <td>{$myissue['created']}</td>
                     </tr>";  
@@ -169,7 +169,7 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                     "<tr class=\"temprow\"> 
                      <td><span class=\"ticketnum\">#{$issue['id']}</span><a href=\"{$issue['id']}\">{$issue['title']}</a></td>
                      <td>{$issue['type']} </td>
-                     <td id={$statid}>{$issue['status']}</td>
+                     <td id={$statid}><span>{$issue['status']}</span></td>
                      <td>{$user['firstname']} {$user['lastname']} </td>
                      <td>{$issue['created']}</td>
                     </tr>";  

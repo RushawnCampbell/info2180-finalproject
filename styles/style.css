@@ -108,6 +108,10 @@ table#issuetable thead{
     margin-right: 1em;
 }
 
+table#issuetable thead th:nth-child(3){
+    text-align: center;
+}
+
 table#issuetable tr td a{
     color: #3498DB;
     text-decoration: none;
@@ -116,33 +120,37 @@ table#issuetable tr td a{
 table#issuetable tr td{
     margin-bottom: 2em;
     margin-top: 2em;
-    padding-bottom: .5em;
+    padding-bottom: 1em;
     border-bottom: solid #ececec .1em; 
 
 }
 
-table#issuetable tr td#open{
+table#issuetable tr td#open, table#issuetable tr td#inprog, table#issuetable tr td#closed{
+    text-align:center;
+}
+
+table#issuetable tr td#open span{
     background: #1434A4;
     color: #fff;
     text-align: center;
     border-radius: .5em;
-    margin-right: 1em;
+    padding:0 1em 0 1em;
 }
 
-table#issuetable tr td#inprog{
+table#issuetable tr td#inprog span{
     background: #ffdb58;
     color: #000;
     text-align: center;
     border-radius: .5em;
-    margin-right: 1em;
+    padding:0 1em 0 1em;
 }
 
-table#issuetable tr td#closed{
+table#issuetable tr td#closed span{
     background: #ed9121;
     color: #000;
     text-align: center;
     border-radius: .5em;
-    margin-right: 1em;
+    padding:0 1em 0 1em;
 
 }
 
