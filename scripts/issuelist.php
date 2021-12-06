@@ -39,12 +39,23 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                         ':id' => $openissue['assigned_to']
                     ));
                     $user = $namestmt->fetch(PDO::FETCH_ASSOC);
+
+                    $statid="";
+                    if($openissue['status'] == "Open"){
+                        $statid = "open";
+                    }
+                    else if($openissue['status'] == "In Progress"){
+                        $statid = "inprog";
+                    }
+                    else if($openissue['status'] == "Closed"){
+                        $statid = "closed";
+                    }
     
                     $tableconstruct .= 
                     "<tr class=\"temprow\"> 
                      <td><span class=\"ticketnum\">#{$openissue['id']}</span><a href=\"{$openissue['id']}\">{$openissue['title']}</a></td>
                      <td>{$openissue['type']} </td>
-                     <td>{$openissue['status']}</td>
+                     <td id={$statid}>{$openissue['status']}</td>
                      <td>{$user['firstname']} {$user['lastname']} </td>
                      <td>{$openissue['created']}</td>
                     </tr>";  
@@ -89,12 +100,21 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                         ':id' => $myissue['assigned_to']
                     ));
                     $user = $namestmt->fetch(PDO::FETCH_ASSOC);
-    
+                    $statid="";
+                    if($myissue['status'] == "Open"){
+                        $statid = "open";
+                    }
+                    else if($myissue['status'] == "In Progress"){
+                        $statid = "inprog";
+                    }
+                    else if($myissue['status'] == "Closed"){
+                        $statid = "closed";
+                    }
                     $tableconstruct .= 
                     "<tr class=\"temprow\"> 
                      <td><span class=\"ticketnum\">#{$myissue['id']}</span><a href=\"{$myissue['id']}\">{$myissue['title']}</a></td>
                      <td>{$myissue['type']} </td>
-                     <td>{$myissue['status']}</td>
+                     <td id={$statid}>{$myissue['status']}</td>
                      <td>{$user['firstname']} {$user['lastname']} </td>
                      <td>{$myissue['created']}</td>
                     </tr>";  
@@ -135,12 +155,21 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                         ':id' => $issue['assigned_to']
                     ));
                     $user = $namestmt->fetch(PDO::FETCH_ASSOC);
-    
+                    $statid="";
+                    if($issue['status'] == "Open"){
+                        $statid = "open";
+                    }
+                    else if($issue['status'] == "In Progress"){
+                        $statid = "inprog";
+                    }
+                    else if($issue['status'] == "Closed"){
+                        $statid = "closed";
+                    }
                     $tableconstruct .= 
                     "<tr class=\"temprow\"> 
                      <td><span class=\"ticketnum\">#{$issue['id']}</span><a href=\"{$issue['id']}\">{$issue['title']}</a></td>
                      <td>{$issue['type']} </td>
-                     <td>{$issue['status']}</td>
+                     <td id={$statid}>{$issue['status']}</td>
                      <td>{$user['firstname']} {$user['lastname']} </td>
                      <td>{$issue['created']}</td>
                     </tr>";  

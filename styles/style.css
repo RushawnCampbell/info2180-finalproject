@@ -121,6 +121,31 @@ table#issuetable tr td{
 
 }
 
+table#issuetable tr td#open{
+    background: #1434A4;
+    color: #fff;
+    text-align: center;
+    border-radius: .5em;
+    margin-right: 1em;
+}
+
+table#issuetable tr td#inprog{
+    background: #ffdb58;
+    color: #000;
+    text-align: center;
+    border-radius: .5em;
+    margin-right: 1em;
+}
+
+table#issuetable tr td#closed{
+    background: #ed9121;
+    color: #000;
+    text-align: center;
+    border-radius: .5em;
+    margin-right: 1em;
+
+}
+
 section#issuelistheaduniverse{
     display: flex;
     flex-flow: column wrap;

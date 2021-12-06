@@ -49,7 +49,6 @@ window.addEventListener("load",event=>{
             let filterall = document.querySelector("section#filter button#all");
             let filteropen = document.querySelector("section#filter button#open");
             let filtermytickets = document.querySelector("section#filter button#mytickets");
-
             homecreatebtn.onclick=event=>{
                 fetch(getformUrl, {method : 'GET'})
                 .then(resp => resp.text())
@@ -57,7 +56,6 @@ window.addEventListener("load",event=>{
                     changearea.innerHTML = resp;
                 })
             }
-
             filteropen.onclick =(event)=>{
                 filterurl = new URL('http://localhost/info2180-finalproject/scripts/issuelist.php');
                 let params = {btn: "open"};
