@@ -117,6 +117,10 @@ table#issuetable tr td a{
     text-decoration: none;
 }
 
+table#issuetable tr td span.ticketnum{
+    font-weight: bold;
+}
+
 table#issuetable tr td{
     margin-bottom: 2em;
     margin-top: 2em;
@@ -196,6 +200,7 @@ section#filter{
     width:30%;
     margin-top: 2em;
     justify-content: space-between;
+    font-weight: bold;
 }
 
 section#filter span{
@@ -208,6 +213,7 @@ section#filter button{
     border-radius: .3em;
     padding: .5em;
     transition: all 0.5s ease-in-out;
+    font-weight:bold;
 }
 
 section#filter button#all:hover{
