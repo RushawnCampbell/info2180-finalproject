@@ -197,6 +197,11 @@ section#filter{
     margin-top: 2em;
     justify-content: space-between;
 }
+
+section#filter span{
+    padding-top: 0.3em;
+}
+
 section#filter button{
     background: none;
     border: none;

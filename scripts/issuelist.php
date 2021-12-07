@@ -18,7 +18,7 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                 <button id=\"createissuebtn\"> Create New Issue </button>
             </section>
             <section id=\"filter\"> 
-                <label>Filter by: </label>
+                <span>Filter by: </span>
                 <button id=\"all\"> ALL </button>
                 <button id=\"open\"> OPEN </button>
                 <button id=\"mytickets\"> MY TICKETS</button>
@@ -79,7 +79,7 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                 <button id=\"createissuebtn\"> Create New Issue </button>
             </section>
             <section id=\"filter\"> 
-                <label>Filter by: </label>
+                <span>Filter by: </span>
                 <button id=\"all\"> ALL </button>
                 <button id=\"open\"> OPEN </button>
                 <button id=\"mytickets\"> MY TICKETS</button>
@@ -134,7 +134,7 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
                 <button id=\"createissuebtn\"> Create New Issue </button>
             </section>
             <section id=\"filter\"> 
-                <label>Filter by: </label>
+                <span>Filter by: </span>
                 <button id=\"all\"> ALL </button>
                 <button id=\"open\"> OPEN </button>
                 <button id=\"mytickets\"> MY TICKETS</button>

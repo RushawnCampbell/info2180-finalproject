@@ -6,7 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['first_name'])&& iss
 
 $check = $_GET['check'];
 $issueid = $_GET['issueid'];
-$updated =  date('Y/m/d H:i:s');
+date_default_timezone_set('US/Eastern');
+$updated =  date('Y-m-d H:i:s');
 $closedstat = "Closed";
 $inprostat = "In Progress";
 
