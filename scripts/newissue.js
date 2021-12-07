@@ -108,7 +108,7 @@ window.addEventListener("load", event =>{
                     priority.classList.remove("inputnormal");
                     priority.classList.add("inputerror");
                 }
-                else{
+                else if (title.value.length !=0 && descript.value.length !=0 && assign.options[assign.selectedIndex].value.length !=0 && type.options[type.selectedIndex].value.length !=0 && priority.value.length !=0){
                     const formData = {
                         title: title.value,
                         description: descript.value,
