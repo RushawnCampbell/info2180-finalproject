@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['first_name'], $_SES
         if ($prep->execute( array(':firstname' => $cleanedfname, ':lastname' => $cleanedlname, ':pass'=>$password, ':email' => $cleanedemail, ':date_joined' => $datejoined))){
             echo "4";
         }
-
+        
     }    
 }
 else{

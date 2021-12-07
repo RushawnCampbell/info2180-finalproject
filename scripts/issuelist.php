@@ -53,7 +53,7 @@ if (isset($_SESSION['first_name'])&& isset($_SESSION['last_name'])){
     
                     $tableconstruct .= 
                     "<tr class=\"temprow\"> 
-                     <td><span class=\"ticketnum\">#{$openissue['id']}</span><a href=\"{$openissue['id']}\">{$openissue['title']}</a></td>
+                     <td><span class=\"ticketnum\"># {$openissue['id']}</span><a href=\"{$openissue['id']}\">{$openissue['title']}</a></td>
                      <td>{$openissue['type']} </td>
                      <td id={$statid}><span>{$openissue['status']}</span></td>
                      <td>{$user['firstname']} {$user['lastname']} </td>

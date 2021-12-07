@@ -15,6 +15,7 @@ window.addEventListener("load", event => {
             const email = document.querySelector("form#adduserform input#email");
             const formstatus = document.querySelector("section#changearea form div.adduserstat");
             const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/g;
             const errors =[
                 "Your email is invalid, please check and try again.",
                 "Your first name is not of the correct format. Please check and try again.",
@@ -40,7 +41,7 @@ window.addEventListener("load", event => {
                     password.classList.add("inputnormal");
                     formstatus.innerHTML = "Please check the email field and try again.";
                 }
-                else if (password.value.length == 0 && email.value.length !=0 && fname.value.length !=0 && lname.value.length !=0){
+                else if ( (password.value.length == 0 || !passwordRegex.test(password.value))&& email.value.length !=0 && fname.value.length !=0 && lname.value.length !=0){
 
                     formstatus.classList.remove("hide");
                     formstatus.classList.remove("success");
@@ -53,7 +54,7 @@ window.addEventListener("load", event => {
                     lname.classList.add("inputnormal");
                     email.classList.remove("inputerror");
                     email.classList.add("inputnormal");
-                    formstatus.innerHTML = "You must enter a password";
+                    formstatus.innerHTML = "Check your password field and try again. Your password must be atleast 8 characters, with atleast 1 capital letter, lowercase letter and number.";
 
                 }
                 else if(fname.value.length == 0 && email.value.length !=0 && password.value.length !=0 && lname.value.length !=0){

@@ -179,7 +179,7 @@ section.issuelistheadparent h1.issuelisthead{
 }
 
 section.issuelistheadparent button#createissuebtn{
-    padding: 1em;
+    padding: .5em;
     border:none;
     border-radius: .5em;
     width: 12em;
